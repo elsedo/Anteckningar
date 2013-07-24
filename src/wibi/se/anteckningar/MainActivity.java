@@ -1,28 +1,18 @@
 package wibi.se.anteckningar;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
-import java.util.HashMap;
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 
-/**
-* This demonstrates how you can implement switching between the tabs of a
-* TabHost through fragments. It uses a trick (see the code below) to allow
-* the tabs to switch between fragments instead of simple views.
-*/
+
 public class MainActivity extends SherlockFragmentActivity {
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,13 +20,32 @@ public class MainActivity extends SherlockFragmentActivity {
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		ActionBar.Tab tab1 = bar.newTab();
 		ActionBar.Tab tab2 = bar.newTab();
+		ActionBar.Tab tab3 = bar.newTab();
 		tab1.setText("Text");
 		tab2.setText("Bild");
+		tab3.setText("Inställningar");
 		tab1.setTabListener(new MyTabListener());
 		tab2.setTabListener(new MyTabListener());
+		tab3.setTabListener(new MyTabListener());
 		bar.addTab(tab1);
 		bar.addTab(tab2);
+		bar.addTab(tab3);
 	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		   MenuInflater inflater = getSupportMenuInflater();
+		   inflater.inflate(R.menu.top_menu, menu);
+		   return super.onCreateOptionsMenu(menu);
+		
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Toast.makeText(this,"Sparat",Toast.LENGTH_LONG).show(); 
+	    
+	    return true;
+	    
+	}
+	
 	private class MyTabListener implements ActionBar.TabListener{
 		@Override
 		public void onTabSelected(Tab tab, FragmentTransaction ft) {
@@ -44,12 +53,18 @@ public class MainActivity extends SherlockFragmentActivity {
 				Anteckningar anteckningar = new Anteckningar();
 				ft.replace(android.R.id.content, anteckningar);
 			}
-			else{
-				Anteckningar anteckningar = new Anteckningar();
-				ft.replace(android.R.id.content, anteckningar);
+			else 
+				if(tab.getPosition()==1){
+					Anteckningar anteckningar = new Anteckningar();
+					ft.replace(android.R.id.content, anteckningar);
+				}
+				else{
+					Anteckningar anteckningar = new Anteckningar();
+					ft.replace(android.R.id.content, anteckningar);
 			}
 		}
-
+		
+		
 		@Override
 		public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 			// TODO Auto-generated method stub

@@ -1,18 +1,65 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_anteckningar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_anteckningar">
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="vertical">
 
     <EditText
         android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dip"
-    	android:background="@drawable/edittext_background"
-        android:ems="10" >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:gravity="top|center_vertical"
+        android:hint="@string/editTextHint"
+        android:padding="8dip" >
 	
-        <requestFocus />
+        <requestFocus android:layout_width="match_parent" />
+
     </EditText>
+
+     </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/btnFacebook"
+        style="@drawable/facebook"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/facebook" >
+        
+    </Button>
+
+    <Button
+        android:id="@+id/btnFlickr"
+        style="@drawable/flickr"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/flickr" >
+        
+    </Button>
+
+    <Button
+        android:id="@+id/btnTwitter"
+        style="@drawable/twitter"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/twitter" >
+        
+    </Button>
+         
+     </LinearLayout>
 
 </LinearLayout>

@@ -5,5 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="new_fragment">New Fragment</string>
+    <string name="editTextHint">Skriv in text att spara</string>
     
 </resources>
