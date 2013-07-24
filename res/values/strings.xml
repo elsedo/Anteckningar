@@ -6,5 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="new_fragment">New Fragment</string>
     <string name="editTextHint">Skriv in text att spara</string>
+     <string name="empty"></string>
+     <string name="save">Spara</string>
     
 </resources>

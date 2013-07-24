@@ -1,5 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/save_button"
-          android:title="Save"
-          android:showAsAction="always|withText" />
+   <item android:id="@+id/save_button"
+       android:icon="@drawable/action_save"
+       android:title="@string/save"
+       android:showAsAction="ifRoom|withText" />
+ 
+   <item android:id="@+id/settings_button"
+       android:title="@string/empty"
+       android:icon="@drawable/action_settings" android:enabled="true" android:visible="true" android:showAsAction="always"/>
 </menu>
